@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeVibes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .login-signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-box {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .form-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-box button {
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background-color: #365899;
+        }
+
+        .form-box p {
+            margin-top: 15px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #19aeb6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+        }
+
+        .header button {
+            background-color: #ff4d4d; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header button:hover {
+            background-color: #e60000;
+        }
+
+        .stories {
+            display: flex;
+            overflow-x: scroll;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .story {
+            width: 80px;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .story img {
+            width: 85px;
+            height: 85px;
+            border-radius: 70%;
+            border: 5px solid #4267B2;
+        }
+
+        .main-content {
+            margin-top: 20px;
+        }
+
+        .post {
+            background-color: rgb(247, 254, 255);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .post img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .post .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions button {
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #365899;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-signup" id="loginPage">
+        <div class="form-box">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+        </div>
+    </div>
+    <div class="container" id="mainPage" style="display: none;">
+        <div class="header">
+            <h1>WeVibes</h1>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <div class="stories">
+            <div class="story">
+                <img src="pics/zxzx.jpg" alt="Story">
+                <p>John Lexter Tabug</p>
+            </div>
+            <div class="story">
+                <img src="pics/fefef.jpg" alt="Story">
+                <p>Kendrick Lamar</p>
+            </div>
+            <div class="story">
+                <img src="pics/dfd.jpg" alt="Story">
+                <p>Daniel Ceasar</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="post">
+                <h3>James Wardell</h3>
+                <p>Enjoying the moment</p>
+                <img src="pics/fsdfs.jpg" alt="Post Image">
+                <div class="actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                    <button>Share</button>
+                </div>
+            </div>
+
+            <div class="post">
+                <h3>Kirk Rodriguez</h3>
+                <p>Love this shoes!</p>
+                <img src="pics/sdadas.jpg" alt="Post Image">
+                <div class="actions">
+                    <button>Like</button>
+                    <button>Comment</button>
+                    <button>Share</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const loginPage = document.getElementById('loginPage');
+            const mainPage = document.getElementById('mainPage');
+            loginPage.style.display = 'none';
+            mainPage.style.display = 'block';
+        }
+
+        function logout() {
+            const loginPage = document.getElementById('loginPage');
+            const mainPage = document.getElementById('mainPage');
+            mainPage.style.display = 'none';
+            loginPage.style.display = 'flex';
+        }
+
+        function showSignup() {
+            alert("Signup feature coming soon!");
+        }
+    </script>
+</body>
+</html>
